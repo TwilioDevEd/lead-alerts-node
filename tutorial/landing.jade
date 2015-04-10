@@ -1,9 +1,25 @@
 .chapter(data-title='Displaying the Landing Page')
-  .step(data-title='How It Works', data-file='views/index.jade')
+  .step(data-title='Landing Page Data', 
+    data-file='controllers/router.js', data-highlight='7-15')
     :markdown
-      
+      ## Landing Page Data
 
-  .step(data-title='Step Two')
-    h2 Chapter One, Step Two
-    p.
-      Doing it up in pure <a href="http://jade-lang.com/reference/">jade</a>.
+      To display a landing page for our house, we'll first need some data about the fictional house we've put on the market. For demonstration purposes, we've hard-coded a JavaScript object literal containing information we need.
+
+  .step(data-title='Configuring The Route', 
+    data-file='controllers/router.js', data-highlight='19-22')
+    :markdown
+      ## Configuring The Route
+
+      Here we create a route handler for the root URL of our application, which will serve as the landing page for our home. We render a Jade template, passing in the data about the house to use inside the template.
+
+      Let's take a look at the Jade code which renders the page.
+
+  .step(data-title='Rendering the Landing Page', 
+    data-file='views/index.jade')
+    :markdown
+      ## Rendering the Landing Page
+
+      In our Jade template, we insert data about the house, and in a sidebar include a form for the user to enter in their contact information to request more info about the home.
+
+      Now that we've seen how the page is rendered, let's 
