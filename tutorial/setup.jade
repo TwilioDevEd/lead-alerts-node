@@ -1,0 +1,52 @@
+.chapter(data-title='Setting Up The Application')
+  .step(data-title='What Are We Building?', data-file='views/index.jade')
+    :markdown
+      ## What Are We Building?
+
+      You probably already have landing pages or product detail views in your web application, which you're using to generate leads for your sales force. In this tutorial, we'll use Twilio SMS to send your sales folks text messages right when a new lead comes in.
+
+      In this example we'll be implementing instant lead alerts for real estate (much like [our awesome friends at Trulia](https://www.twilio.com/customers/stories/trulia)). We'll create a landing page for a new house on the market, and notify a real estate agent the moment a potential customer requests information. If you're not in real estate, don't worry - the same technique can be used for any business that needs to distribute leads to sales people.
+
+      Want to see it in action right away? [Download the code](https://github.com/TwilioDevEd/lead-alerts-node) or deploy it to Heroku right now:
+
+      [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/TwilioDevEd/lead-alerts-node)
+
+      Want to learn how it works? Then let's build it! Click the next arrow above to continue the tutorial.
+
+  .step(data-title='How It Works')
+    :markdown
+      ## How It Works
+
+      Here's how our example app works at a high level:
+
+      ![Lead Alerts Flow](//s3.amazonaws.com/howtodocs/lead-alerts-flow.png)
+
+      1. Your customer arrives at a landing page for your product (in this case, a house)
+      1. The customer enters their name and contact information into a form to request more information
+      1. The sales rep responsible for the product (in this case a real estate agent) receives a text message notifying them of the new lead
+
+      We'll step through the implementation of these steps directly in the code. But before we do that, let's explore the tools and frameworks we'll use to build this application.
+
+  .step(data-title='About This Application', data-file='index.js')
+    :markdown
+      ## About This Application
+
+      This is a [Node.js](http://www.nodejs.org) web application using the popular [Express](http://www.expressjs.com) web framework. To generate HTML on the server, we'll use the [Jade](http://www.jade-lang.com) template engine. This particular use case is pretty simple to implement, so won't need much more than that! We will, however, make use of the [Twilio module for Node.js](http://twilio.github.io/twilio-node/) to make it easier to interact with the Twilio API to actually send out our text messages.
+
+      This is the main file of the application. You can start this application by executing `node .` at the root directory of the example project in the terminal.
+
+      We'll also need to edit a few configuration variables to make our application work - let's look at those next.
+
+  .step(data-title='Configuring The Application', data-file='config.js' data-highlight="10-25")
+    :markdown
+      ## Configuring The Application
+
+      The application needs to know a few key things before it can run successfully. These config variables will be pulled in from the system environment instead of hard-coded in the file, so we don't accidentally check these sensitive values (like our Twilio account information) into source control.  Once these config variables are set, our application is ready to run.
+
+      Now that we understand how our application is configured and run, let's start working through the actual implementation, starting with the landing page and form that we display to the customer.
+
+
+
+
+
+
