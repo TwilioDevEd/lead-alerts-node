@@ -1,0 +1,31 @@
+{
+  "name": "Instant Lead Alerts",
+  "description": "Notify sales people immediately via SMS when new leads come in.",
+  "keywords": [
+    "twilio",
+    "node.js",
+    "express"
+  ],
+  "env": {
+    "TWILIO_ACCOUNT_SID": {
+      "description": "API username - find your account SID at https://www.twilio.com/user/account/voice-messaging",
+      "required": true
+    },
+    "TWILIO_AUTH_TOKEN": {
+      "description": "API password - find your auth token at https://www.twilio.com/user/account/voice-messaging",
+      "required": true
+    },
+    "TWILIO_NUMBER": {
+      "description": "A number in your Twilio account to use with this application in E.164 format (e.g. +16518675309) - view your numbers at https://www.twilio.com/user/account/phone-numbers/incoming",
+      "required": true
+    },
+    "AGENT_NUMBER": {
+      "description": "A mobile phone number of a sales rep/agent you want to notify when the lead comes in.",
+      "required": true
+    }
+  },
+  "website": "https://github.com/TwilioDevEd/lead-alerts-node",
+  "repository": "https://github.com/TwilioDevEd/lead-alerts-node",
+  "logo": "https://s3.amazonaws.com/howtodocs/twilio-logo.png",
+  "success_url": "/welcome.html"
+}
