@@ -1,11 +1,25 @@
 .chapter(data-title='Sending the Lead Notification')
-  .step(data-title='How It Works', data-file='views/index.jade')
-    h2 How It Works
-    p.
-      You probably already have landing pages or product detail views in your
-      web application 
+  .step(data-title='Creating a Twilio REST API Client', 
+    data-file='controllers/router.js', data-highlight='1-5')
+    :markdown
+      ## Creating a Twilio REST API Client
 
-  .step(data-title='Step Two')
-    h2 Chapter One, Step Two
-    p.
-      Doing it up in pure <a href="http://jade-lang.com/reference/">jade</a>.
+      When our server code is initialized, we create an authenticated Twilio REST API client that we can use across all requests to our controller. We initialize it with our Twilio account credentials in the config file we saw earlier.
+
+  .step(data-title='Handling the POST Request', 
+    data-file='controllers/router.js', data-highlight='24-46')
+    :markdown
+      ## Handling the POST Request
+
+      This code handles the HTTP `POST` request issues by our landing page, and uses the Twilio REST client to send a text message to the real estate agent's phone number, which is also set in `config.js`. We include the lead's name, phone number, and inquiry directly in the body of the text message we send to the agent.
+
+      Now the agent has all the information they need to immediately follow up on the lead.
+
+  .step(data-title='All Done!', 
+    data-file='controllers/router.js')
+    :markdown
+      ## All Done!
+
+      With just a few lines of code on the server, we've enhanced a standard product landing page with instant lead notifications using SMS text messages. Whether your sales team uses iPhones or flip phones, they can follow up with new prospects in minutes.
+
+      We hope you enjoyed this tutorial! If you have any questions or feedback, we would like to hear it. Hit us up [@twilio](https://twitter.com/twilio) on Twitter, or send a note to [help@twilio.com](mailto:help@twilio.com). We'd love to hear what you're building.

@@ -22,4 +22,13 @@
 
       In our Jade template, we insert data about the house, and in a sidebar include a form for the user to enter in their contact information to request more info about the home.
 
-      Now that we've seen how the page is rendered, let's 
+      The form is actually not going to be submitted directly when the button is clicked - we'll handle that piece via JavaScript to avoid a page refresh. Let's check out that code next.
+
+  .step(data-title='Submitting the Form', 
+    data-file='public/form.js')
+    :markdown
+      ## Submitting the Form
+
+      On our landing page, we include this JavaScript code to intercept the form submission event, and submit the form via Ajax. We do this to avoid a page turn, keeping the user on our landing page.  On either a success or error response from the `/leads` resource, we show an alert message indicating whether or not the request was received successfully.
+
+      Now that we've seen how the front end code for our landing page works, let's see what happens on the server when we send that `POST` request to `/leads`.
