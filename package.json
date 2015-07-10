@@ -4,7 +4,8 @@
   "description": "A Twilio starter project for Node.js development using the Express web framework",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test"
+    "test": "mocha test",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
