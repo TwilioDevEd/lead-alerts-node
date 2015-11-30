@@ -6,12 +6,13 @@ var client = twilio(config.accountSid, config.authToken);
 
 // Some hard-coded information about a house
 var house = {
-    title: '555 Sunnybrook Lane',
-    price: '$349,999',
-    description: 'You and your family will love this charming home. '
-        + 'Featuring granite appliances, stainless steel windows, and '
-        + 'high efficiency dual mud rooms, this joint is loaded to the max. '
-        + 'Motivated sellers have priced for a quick sale, act now!'
+    title: 'Google Apps for Work – Email, Collaboration Tools And More',
+    price: '$5/month per User',
+    description: 'Google Apps is a suite of web-based collaboration software to '
+        + 'meets the needs of your small to medium sized business: '
+        + 'Gmail; Google Calendar for shared calendaring; Google Docs and Spreadsheets '
+        + 'for online document hosting and collaboration; Google Sites for team site creation '
+        + 'and publishing; and Google Video for easy, secure sharing of video content. '
 };
 
 // Map routes to controller functions
