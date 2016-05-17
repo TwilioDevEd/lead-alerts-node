@@ -1,3 +1,105 @@
-include setup
-include landing
-include notification
+.chapter(data-title='Setting Up The Application')
+  .step(
+    data-title='What Are We Building?',
+    data-file='config.js')
+    :markdown
+      ## What Are We Building?
+
+      You probably already have landing pages or product detail views in your
+      web application, which you're using to generate leads for your business.
+      On this tutorial we'll use Twilio SMS to send a message when a new lead
+      is found.
+
+      ![Lead Alerts Flow](//s3.amazonaws.com/howtodocs/lead-alerts-flow.png)
+
+      In this example we'll be implementing instant lead alerts for real estate
+      (much like [our awesome friends at
+      Trulia](//www.twilio.com/customers/stories/trulia)). We'll create a
+      landing page for a new house on the market, and notify a real estate agent
+      the moment a potential customer requests information.
+
+      Let's see how it works! Click the next arrow above to continue the tutorial.
+
+  .step(
+    data-title='Landing Page Data',
+    data-file='controllers/router.js',
+    data-highlight='7-15,19-22')
+    :markdown
+      ## Landing Page Data
+
+      To display a landing page for our house, we need some data about
+      the fictional house we've put on the market. For demonstration purposes
+      we've hard-coded an object containing information we need.
+
+      ---
+
+      **See Also:**
+      * [JavaScript Objects](//www.w3schools.com/js/js_objects.asp)
+
+  .step(data-title='Rendering the Landing Page',
+    data-file='views/index.jade')
+    :markdown
+      ## Rendering the Landing Page
+
+      In our template we insert data about the house and in a sidebar
+      we include a form for the user. Here they enter their contact information
+      and request more info about the home.
+
+      ---
+
+      **See Also:**
+      * [Jade Templates](//jade-lang.com/)
+
+  .step(
+    data-title='Creating a Twilio API Client',
+    data-file='controllers/router.js', data-highlight='1-5')
+    :markdown
+      ## Creating a Twilio REST API Client
+
+      Now we need to create a helper class with an authenticated Twilio REST
+      API client that we can use anytime we need to send a text message. We
+      initialize it with our [Twilio Account Credentials](//www.twilio.com/user/account/messaging/dashboard)
+      that are stored as environment variables.
+
+  .step(
+    data-title='Handling the POST Request',
+    data-file='controllers/router.js', data-highlight='25-46')
+    :markdown
+      ## Handling the POST Request
+
+      This code handles the HTTP `POST` request issued by our landing page. Here
+      we use a [Twilio REST API Client](//twilio.github.io/twilio-node/#restapi)
+      to send an SMS message to the real estate agent's phone number, which is also
+      set as a environment variable. We include the lead's name, phone number, and
+      inquiry directly in the body of the text message sent to the agent.
+
+      Now the agent has all the information they need to follow up on the lead.
+
+      ---
+
+      **See Also:**
+      * [Express HTTP Methods](//expressjs.com/en/api.html#app.METHOD)
+
+  .step
+    :markdown
+      ## Where to next?
+
+      That's it! We've just implemented an application to instantly route leads
+      to sales people using text messages. If you're a
+      NodeJS developer working with Twilio, you might want to check out these
+      other tutorials.
+
+      [**Appointment Reminders**](//www.twilio.com/docs/tutorials/walkthrough/appointment-reminders/node/express)
+
+      Learn to implement appointment reminders on your web app with Twilio.
+
+      [**Two-Factor Authentication with Authy**](//www.twilio.com/docs/tutorials/walkthrough/two-factor-authentication/node/express)
+
+      Learn to implement two-factor authentication (2FA) on your web app with
+      Twilio-powered Authy.
+
+      ### Did this help?
+
+      Thanks for checking out this tutorial! If you have any feedback
+      to share with us, we'd love to hear it.
+      [Contact the Twilio Developer Education Team](mailto:deved-oss@twilio.com) to let us know what you think.
