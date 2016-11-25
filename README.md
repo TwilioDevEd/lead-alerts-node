@@ -57,7 +57,7 @@ To run this project on your computer, you will need to download and install eith
 
 1. Install [Docker](https://www.docker.com/) and [docker-compose](https://docs.docker.com/compose/install/).
 
-1. Make sure you performed step `2` on the previous section.
+1. Make sure you performed step **2** on the previous section.
 
 1. Copy the template .env file and set the required environment variables.You
    can find these values at https://www.twilio.com/user/account/voice and at
@@ -77,8 +77,7 @@ To run this project on your computer, you will need to download and install eith
   $ docker-compose up -d
   ```
 
-  Warning: If you previously ran  ```npm install``` locally, the node_modules folder will conflict with the file structure of the container when you run the above command.
-  We recommended installing your node dependencies one folder up from the rest of your source code.
+  Warning: If you previously ran  ```npm install``` locally, the node_modules folder will conflict with the file structure of the container when you run the above command. We recommended installing your node dependencies one folder up from the rest of your source code.
 
 1. You can then visit the application at [http://localhost:3000/](http://localhost:3000/). If you're using [boot2docker](https://docs.docker.com/installation/mac/) to run Docker on OS X, you'll need to use the value of `boot2docker ip` instead of `localhost`.
 
