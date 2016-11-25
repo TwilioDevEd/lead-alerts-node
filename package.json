@@ -33,7 +33,7 @@
     "http-auth": "^2.2.5",
     "jade": "^1.9.2",
     "morgan": "^1.5.1",
-    "twilio": "^1.11.1"
+    "twilio": "3.0.0-rc.13"
   },
   "devDependencies": {
     "chai": "^2.1.0",

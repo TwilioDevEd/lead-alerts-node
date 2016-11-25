@@ -23,25 +23,22 @@ module.exports = function(app) {
 
     // Send lead notification
     app.post('/leads', function(request, response) {
-        // Assemble a text message body 
-        var message = 'New lead received for ' + house.title + '. Call ' 
+        // Assemble a text message body
+        var message = 'New lead received for ' + house.title + '. Call '
             + request.body.name + ' at ' + request.body.phone + '. Message: "'
             + request.body.message + '"';
 
         // Send lead notification to agent
-        client.sendMessage({
-            to: config.agentNumber,
-            from: config.twilioNumber,
-            body: message
-        }, function(err, data) {
-            // Return a 500 if there was an error on Twilio's end
-            if (err) {
-                console.error(err);
-                return response.status(500).send();
-            }
-
-            // Otherwise, respond with 200 OK
-            response.status(200).send('');
+        client.messages.create({
+          to: config.agentNumber,
+          from: config.twilioNumber,
+          body: message
+        }).then(function(data) {
+          response.status(200).send('');
+        }).catch(function(err) {
+          console.error(err);
+          // Return a 500 if there was an error on Twilio's end
+          return response.status(500).send();
         });
     });
 };
