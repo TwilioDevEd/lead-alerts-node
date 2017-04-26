@@ -39,12 +39,18 @@ nodemon .
 
 First, install [Docker](https://www.docker.com/) and [docker-compose](https://docs.docker.com/compose/install/).
 
-Then set the following environment variables in your terminal session. You can find these values at https://www.twilio.com/user/account/voice and at https://dashboard.authy.com.
+1. Copy the template .env file and set the required environment variables.You
+   can find these values at https://www.twilio.com/user/account/voice and at
+   https://dashboard.authy.com.
 
-- `TWILIO_NUMBER`
-- `TWILIO_ACCOUNT_SID`
-- `TWILIO_AUTH_TOKEN`
-- `AGENT_NUMBER`
+    ```bash
+    cp .env.example .env
+    ```
+2. Load the variables in your session:
+
+    ```bash
+    source .env
+    ```
 
 Finally, run the following commands to start your Docker containers:
 
@@ -55,7 +61,7 @@ $ docker-compose up -d
 Warning: If you previously ran  ```npm install``` locally, the node_modules folder will conflict with the file structure of the container when you run the above command.
 We recommended installing your node dependencies one folder up from the rest of your source code.
 
-You can then visit the application at [http://localhost:3000/](http://localhost:3000/). If you're using [boot2docker](https://docs.docker.com/installation/mac/) to run Docker on OS X, you'll need to use the value of `boot2docker ip` instead of `localhost`.
+You can then visit the application at [http://localhost:3000/](http://localhost:3000/).
 
 To stop your containers, run `docker-compose stop`.
 
