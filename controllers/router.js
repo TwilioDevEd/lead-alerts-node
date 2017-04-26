@@ -23,17 +23,14 @@ module.exports = function () {
     router.get('/', function(request, response) {
         response.render('index', house);
     });
-    console.log('### test')
 
     // Send lead notification
     router.post('/leads', function(request, response) {
-        console.log(request.body)
         // Assemble a text message body
         var message = 'New lead received for ' + house.title + '. Call '
             + request.body.name + ' at ' + request.body.phone + '. Message: "'
             + request.body.message + '"';
 
-            console.log(new Date())
         // Send lead notification to agent
         client.messages.create({
             to: config.agentNumber,
