@@ -1,8 +1,7 @@
-var twilio = require('twilio');
-var config = require('../config');
+const Twilio = require('twilio');
+const config = require('../config');
+const Express = require('express');
 
-// Create an authenticated Twilio API client
-var client = twilio(config.accountSid, config.authToken);
 
 // Some hard-coded information about a house
 var house = {
@@ -15,33 +14,41 @@ var house = {
 };
 
 // Map routes to controller functions
-module.exports = function(app) {
+module.exports = function () {
+    // Create an authenticated Twilio API client
+    var client = new Twilio(config.accountSid, config.authToken);
+    const router = Express.Router();
+
     // Render landing page
-    app.get('/', function(request, response) {
+    router.get('/', function(request, response) {
         response.render('index', house);
     });
+    console.log('### test')
 
     // Send lead notification
-    app.post('/leads', function(request, response) {
-        // Assemble a text message body 
-        var message = 'New lead received for ' + house.title + '. Call ' 
+    router.post('/leads', function(request, response) {
+        console.log(request.body)
+        // Assemble a text message body
+        var message = 'New lead received for ' + house.title + '. Call '
             + request.body.name + ' at ' + request.body.phone + '. Message: "'
             + request.body.message + '"';
 
+            console.log(new Date())
         // Send lead notification to agent
-        client.sendMessage({
+        client.messages.create({
             to: config.agentNumber,
             from: config.twilioNumber,
             body: message
-        }, function(err, data) {
-            // Return a 500 if there was an error on Twilio's end
-            if (err) {
-                console.error(err);
-                return response.status(500).send();
-            }
-
-            // Otherwise, respond with 200 OK
-            response.status(200).send('');
-        });
+        })
+        .then(() => {
+          // Otherwise, respond with 200 OK
+          response.status(200).send('Lead notification was successfully sent.');
+        })
+        .catch((err) => {
+          console.error(err);
+          response.status(500).send();
+        })
     });
+
+    return router;
 };
