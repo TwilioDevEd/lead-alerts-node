@@ -11,7 +11,7 @@ const router = require('./controllers/router')();
 module.exports = () => {
   // Create Express web app
   var app = express();
-  app.set('view engine', 'jade');
+  app.set('view engine', 'pug');
 
   // Use morgan for HTTP request logging
   app.use(morgan('combined'));
