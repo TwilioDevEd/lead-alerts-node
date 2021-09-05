@@ -33,7 +33,7 @@
     "http-auth": "^4.1.2",
     "pug": "2.0.4",
     "morgan": "^1.10.0",
-    "twilio": "^3.42.1"
+    "twilio": "^3.54.2"
   },
   "devDependencies": {
     "chai": "^4.2.0",
